@@ -1,0 +1,236 @@
+header{
+	width: 100%;
+	height: 50px;
+	background: #1e1b29;
+	border-bottom: solid 4px red;
+}
+.member_wrap{
+	
+}
+
+.header_item{
+	overflow: hidden;
+}
+.user_menu{
+	width: 100%;
+	height: 170px;
+	padding: 20px 0;
+	background:url(../img/banner_bg.html) repeat;
+}
+.header_item{
+	
+	width: 980px;
+	margin: 0 auto;
+}
+.menu_head{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	border: solid 3px #fff;
+	overflow: hidden;
+}
+.menu_head img{
+	width: 100%;
+	height: 100%;
+}
+.menu_info{
+	width:840px;
+	margin-left: 20px;	
+}
+.info_name{
+	font-size: 18px;
+	line-height: 40px;
+	font-weight: bold;
+	color: #fff;
+}
+.info_name_box{
+	margin-top: 10px;
+}
+.level{
+	font-size: 14px;
+	color: #f60;
+	font-weight: bold;
+}
+.info_desc{
+	margin-top: 10px;
+	font-size: 14px;
+	color: #FFF;
+}
+.banner_menu{
+	width: 980px;
+	height: 50px;
+	margin: 20px auto;
+	background: #fff;
+}
+
+
+.nav_box{
+	margin-top: 50px;
+}
+.nav_box ul {
+	overflow: hidden;
+}
+.nav_box ul li{
+	display: block;
+	padding: 0 20px;
+}
+.nav_box ul li a{
+	color: #fff;
+	font-size: 16px;
+}
+.nav_box ul li a:hover{
+	color: red;
+}
+
+
+
+
+.wrap.login_wrap{
+    background: linear-gradient(to right, rgba(255,127,80,0.8), rgba(255,165,0,0.8)), url(../img/logo_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+.login_wrap{
+	background: url(../img/logo_bg.jpg) no-repeat center;
+	background-size: 100%;
+}
+.logo{
+	width: 500px;
+	height: 150px;
+	margin: 0px auto;
+	background: url(../img/logowz.png) no-repeat center;
+}
+/* 添加阴影和圆角 */
+.login_box {
+    width: 360px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+	padding-bottom: 20px;
+}
+.login_title{
+	font-size: 25px;
+	text-align: center;
+	color: #FF7F50;
+	padding: 15px 0;
+	width: 300px;
+	margin: 0 auto;
+	border-bottom: solid 1px #CCCCCC;
+}
+.form_check_ipt{
+	width: 300px;
+	margin:  10px auto;
+	overflow: hidden;
+}
+/* 调整输入框样式 */
+.form_text_ipt {
+    width: 300px;
+    height: 40px;
+    border: solid 1px #CCCCCC;
+    margin: 20px auto 0 auto;
+    background: #FFFFFF;
+    border-radius: 5px; /* 添加圆角 */
+    display: flex;
+    align-items: center; /* 居中对齐 */
+}
+/* 输入框内部样式 */
+.form_text_ipt input {
+    width: 90%;
+    height: 30px;
+    margin: 5px 13px;
+    border: none;
+    font-family: "微软雅黑";
+    font-size: 15px;
+    color: #666;
+}
+
+.check_left label{
+	cursor: pointer;
+}
+.check_left label input{
+	position: relative;
+	top: 2px;
+}
+/* 调整按钮样式 */
+.form_btn {
+    width: 300px;
+    height: 40px;
+    margin: 20px auto;
+    text-align: center;
+}
+/* 添加按钮悬停效果 */
+.form_btn button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    background: linear-gradient(to right, #FF7F50, #FF4500); /* 渐变背景 */
+    cursor: pointer;
+    border-radius: 5px; /* 添加圆角 */
+    transition: background 0.3s ease; /* 添加过渡效果 */
+}
+
+.form_btn button:hover {
+    background: linear-gradient(to right, #FF6347, #FF4500); /* 悬停效果 */
+}
+
+/* 调整注册按钮样式 */
+.shift_btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: auto;
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+.form_reg_btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+/* 提示信息居中 */
+.ececk_warning {
+    font-size: 13px;
+    color: red;
+    width: 300px;
+    margin: 0 auto;
+    display: none;
+    text-align: center; /* 添加文本居中 */
+}
+/* 输入框获取焦点时效果 */
+.form_text_ipt input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255,127,80,0.5);
+    border: 1px solid #FF7F50; /* 修改边框颜色 */
+	border-radius: 5px;
+    background-color: #FFF5EE; /* 添加背景色变化 */
+}
+.other_login{
+	overflow: hidden;
+	width: 300px;
+	height: 80px;
+	line-height: 80px;
+	margin: 0px auto;
+}
+.other_left{
+	font-size: 14px;
+	color: #999;
+}
+
+.other_right a{
+	margin:5px;
+	color:#636363;
+}
+
+.other_right a:hover{
+	color:#AEEEEE;
+}
+

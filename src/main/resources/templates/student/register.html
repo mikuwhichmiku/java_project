@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新川崎考试系统-注册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+        }
+
+        section .color {
+            position: absolute;
+            filter: blur(150px);
+        }
+
+        section .color:nth-child(1) {
+            top: -350px;
+            width: 600px;
+            height: 600px;
+            background: #ff359b;
+        }
+
+        section .color:nth-child(2) {
+            bottom: -150px;
+            left: 100px;
+            width: 500px;
+            height: 500px;
+            background: #fffd87;
+        }
+
+        section .color:nth-child(3) {
+            bottom: 50px;
+            right: 100px;
+            width: 500px;
+            height: 500px;
+            background: #00d2ff;
+        }
+
+        .box {
+            position: relative;
+        }
+
+        .box .square {
+            position: absolute;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: animate 10s linear infinite;
+            animation-delay: calc(-1s * var(--i));
+        }
+
+        @keyframes animate {
+            0%,
+            100% {
+                transform: translateY(-40px);
+            }
+
+            50% {
+                transform: translate(40px);
+            }
+        }
+
+        .box .square:nth-child(1) {
+            top: -50px;
+            right: -60px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .box .square:nth-child(2) {
+            top: 150px;
+            left: -100px;
+            width: 120px;
+            height: 120px;
+            z-index: 2;
+        }
+
+        .box .square:nth-child(3) {
+            bottom: 50px;
+            right: -60px;
+            width: 80px;
+            height: 80px;
+            z-index: 2;
+        }
+
+        .box .square:nth-child(4) {
+            bottom: -80px;
+            left: 100px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .box .square:nth-child(5) {
+            top: -90px;
+            left: 140px;
+            width: 60px;
+            height: 60px;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            min-height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .form h2 {
+            position: relative;
+            color: #000;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        .form h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            background: #000;
+        }
+
+        .form .form_text_ipt {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form .form_text_ipt input,
+        .form .form_text_ipt select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form .form_text_ipt input::placeholder {
+            color: #000;
+        }
+
+        .form .form_text_ipt input[type="submit"] {
+            background: #fff;
+            color: #666;
+            max-width: 100px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form .ececk_warning {
+            font-size: 13px;
+            color: #ff359b;
+            width: 300px;
+            margin: 0 auto;
+            display: none;
+            text-align: center;
+        }
+
+        .forget {
+            margin-top: 5px;
+            color: #000;
+        }
+
+        .forget a {
+            color: #000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+<section>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="container">
+            <div class="form">
+                <div class="login_title">
+                    <h2 class="text-center font-weight-light my-4">注册</h2>
+                </div>
+                <form th:action="@{/CanRegister}" method="post" onsubmit="return validateForm()">
+                    <input name="roleid" value="2" type="hidden" />
+                    <div class="form_text_ipt">
+                        <input name="username" type="text" placeholder="学号">
+                    </div>
+                    <div class="ececk_warning"><span>学号不能为空</span></div>
+                    <div class="form_text_ipt">
+                        <input name="userpwd" type="password" placeholder="密码">
+                    </div>
+                    <div class="ececk_warning"><span>密码不能为空</span></div>
+                    <div class="form_text_ipt">
+                        <input name="truename" type="text" placeholder="真实姓名">
+                    </div>
+                    <div class="ececk_warning"><span>真实姓名不能为空</span></div>
+                    <div class="form_text_ipt">
+                        <select name="classid" class="lb">
+                            <option name="classid" th:each="pclass : ${list}" th:value="${pclass.getClassid()}"
+                                    th:text="${pclass.getClassname()}"></option>
+                        </select>
+                    </div>
+                    <div class="ececk_warning"><span>班级不能为空</span></div>
+                    <div class="form_text_ipt">
+                        <input name="email" type="email" placeholder="邮箱">
+                    </div>
+                    <div class="ececk_warning"><span>邮箱不能为空</span></div>
+
+                    <div class="form_text_ipt">
+                        <input name="phone" type="tel" placeholder="电话">
+                    </div>
+                    <div class="ececk_warning"><span>电话不能为空</span></div>
+                    <div id="nogg" style="text-align: center"><span style="color: red;text-align: center" id="ad"
+                                                                    th:text="${session.msg2}"></span>
+                        <span style="color: red;text-align: center" id="ad1" th:text="${session.msg1}"></span>
+                        <span style="color: red;text-align: center" id="ad2" th:text="${session.msg3}"></span>
+                    </div>
+                    <script>
+                        window.onload = function () {
+                            //要执行的js代码
+                            var ad = document.getElementById("ad").innerText;
+                            if (ad != "") {
+                                setTimeout(function () { document.getElementById("nogg").style.display = "none"; location.replace("./register") }, 1000);
+                            }
+                        }
+                        var ad1 = document.getElementById("ad1").innerText;
+                        if (ad1 != "") {
+                            setTimeout(function () { document.getElementById("nogg").style.display = "none"; location.replace("./register") }, 9000);
+                        }
+                        var ad2 = document.getElementById("ad2").innerText;
+                        if (ad2 != "") {
+                            setTimeout(function () { document.getElementById("nogg").style.display = "none"; location.replace("./register") }, 1000);
+                        }
+                    </script>
+                    <div class="form_text_ipt">
+                        <div class="form_btn">
+                            <input type="submit" value="注册">
+                        </div>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>已有帐号？</span><a th:href="@{/toStuLogin}">马上登录</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                    <div class="other_login">
+                        <div class="left other_left">
+                            <span>其它登录方式</span>
+                        </div>
+                        <div class="right other_right">
+                            <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                            <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                            <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function validateForm() {
+        var username = document.forms["registerForm"]["username"].value;
+        var userpwd = document.forms["registerForm"]["userpwd"].value;
+        var truename = document.forms["registerForm"]["truename"].value;
+        var classid = document.forms["registerForm"]["classid"].value;
+
+        if (username == "" || userpwd == "" || truename == "" || classid == "") {
+            alert("所有字段都是必填的");
+            return false;
+        }
+        return true;
+    }
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+
+</html>

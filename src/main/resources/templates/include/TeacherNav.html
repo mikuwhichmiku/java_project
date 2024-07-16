@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="TeacherNav">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>后台管理中心</title>
+        <link rel="stylesheet" href="./font/iconfont.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            a[onclick] {
+                cursor: pointer;
+            }
+            body {
+                min-height: 100vh;
+                background-color: var(--body-color);
+                transition: all 0.3s ease;
+            }
+
+            :root {
+                --body-color: #E4E9F7;
+                --shell-color: #FFF;
+                --primary-color: #695CFE;
+                --primary-color-light: #F6F5FF;
+                --toggle-color: #DDD;
+                --text-color: #707070;
+            }
+
+            .shell {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 250px;
+                padding: 10px 14px;
+                background: var(--shell-color);
+                transition: all 0.3s ease;
+                z-index: 100;
+            }
+
+            .close {
+                width: 250px;
+            }
+
+            .shell li {
+                height: 50px;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .icon {
+                min-width: 60px;
+                border-radius: 6px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font: 300 23px '';
+            }
+
+            .text,
+            .icon {
+                color: var(--text-color);
+                transition: all 0.3s ease;
+            }
+
+            .text {
+                font: 500 17px;
+                white-space: nowrap;
+                opacity: 1;
+            }
+            
+            .text.nac-text {
+                cursor: pointer;
+            }
+            .shell.close .text {
+                opacity: 0;
+            }
+
+            header {
+                position: relative;
+            }
+
+            .image-text {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo-text {
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                text-align: center;
+                padding-top: 20px;
+            }
+
+            .name {
+                margin-top: 2px;
+                font: 600 18px '';
+            }
+
+            .nac-text {
+                margin-left: 20px;
+            }
+
+            .software {
+                font-size: 10px;
+                margin-top: 0px;
+                display: block;
+            }
+
+            .menu {
+                margin-top: 40px;
+            }
+
+            .shell li a {
+                list-style: none;
+                height: 100%;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                border-radius: 6px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .shell li a:hover {
+                background-color: var(--primary-color);
+            }
+
+            .shell li a:hover .icon,
+            .shell li a:hover .text {
+                color: var(--shell-color);
+            }
+
+            .menu-bar {
+                height: calc(100% - 55px);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow-y: scroll;
+            }
+
+            .menu-bar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .dark .shell li a:hover .icon,
+            .dark .shell li a:hover .text {
+                color: #ccc;
+            }
+
+            /* 弹窗背景 */
+            .toastmodal {
+                display: none;
+                /* 初始隐藏 */
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0, 0, 0);
+                background-color: rgba(0, 0, 0, 0.4);
+                /* 背景半透明 */
+            }
+
+            /* 弹窗内容 */
+            .toastmodal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                /* 居中 */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                /* 宽度 */
+                max-width: 500px;
+                /* 最大宽度 */
+                border-radius: 10px;
+            }
+
+            /* 关闭按钮 */
+            .closebtn {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .closebtn:hover,
+            .closebtn:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .tikuTitle{
+                font-size:20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+    <nav class="shell">
+        <header>
+            <div class="image-text">
+                <div class="text logo-text">
+                    <span class="name">后台管理中心</span>
+                    <span class="software">- 教师端 -</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a th:href="@{/StudentList}">
+                            <span class="text nac-text">学生管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a th:href="@{/selectexam}">
+                            <span class="text nac-text">考试管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-link tiku openModalBtn">
+                        <a>
+                            <span class="text nac-text ">题库管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a th:href="@{/findAllScore}">
+                            <span class="text nac-text">成绩管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a onclick="loginOut()">
+                        <span class="text nac-text">退出系统</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+        <div id="myModal" class="toastmodal">
+            <div class="toastmodal-content">
+                <span class="closebtn">&times;</span>
+                <div class="tikuTitle">题库管理</div>
+                <div class="menu-bar">
+                    <div class="menu">
+                        <ul class="menu-links">
+                            <li class="nav-link">
+                                <a th:href="@{/finddanxuan}">
+                                    <span class="text nac-text">单选管理</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a th:href="@{/findduoxuan}">
+                                    <span class="text nac-text">多选管理</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a th:href="@{/findpanduan}">
+                                    <span class="text nac-text">判断管理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // 获取弹窗
+        var modal = document.getElementById("myModal");
+
+        // 获取打开弹窗按钮
+        var btn = document.querySelector(".openModalBtn");
+
+        // 获取关闭按钮
+        var span = document.getElementsByClassName("closebtn")[0];
+
+        // 点击按钮打开弹窗
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // 点击关闭按钮关闭弹窗
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // 在用户点击弹窗外部时关闭弹窗
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function loginOut() {
+            if (confirm('将退出该系统!')) {
+                location.replace("./Tlogout");
+            }
+        }
+    </script>
+
+    </body>
+</div>
+</html>

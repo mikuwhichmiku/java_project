@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="StuNav">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新川崎网络考试系统</title>
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a[onclick] {
+            cursor: pointer;
+        }
+        body {
+            min-height: 100vh;
+            background-color: #E4E9F7;
+            transition: all 0.3s ease;
+        }
+        .shell {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            padding: 10px 14px;
+            background: #FFF;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .close {
+            width: 250px;
+        }
+        .shell li {
+            height: 50px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .icon {
+            min-width: 60px;
+            border-radius: 6px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: 300 23px '';
+        }
+        .text,
+        .icon {
+            color: #707070;
+            transition: all 0.3s ease;
+        }
+        .text {
+            font: 500 17px;
+            white-space: nowrap;
+            opacity: 1;
+        }
+        .text.nac-text {
+            cursor: pointer;
+        }
+        .shell.close .text {
+            opacity: 0;
+        }
+        header {
+            position: relative;
+        }
+        .image-text {
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .name {
+            margin-top: 2px;
+            font: 600 18px '';
+        }
+        .nac-text {
+            margin-left: 20px;
+        }
+        .software {
+            font-size: 10px;
+            margin-top: 0px;
+            display: block;
+        }
+        .menu {
+            margin-top: 40px;
+        }
+        .shell li a {
+            list-style: none;
+            height: 100%;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .shell li a:hover {
+            background-color: #695CFE;
+        }
+        .shell li a:hover .icon,
+        .shell li a:hover .text {
+            color: #FFF;
+        }
+        .menu-bar {
+            height: calc(100% - 55px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: scroll;
+        }
+        .menu-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .dark .shell li a:hover .icon,
+        .dark .shell li a:hover .text {
+            color: #ccc;
+        }
+        .toastmodal {
+            display: none;
+            position: fixed;
+            z-index: 1500;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .toastmodal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .closebtn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .closebtn:hover,
+        .closebtn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .xTitle {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="bootstrap">
+    <link rel="icon" href="../img/favicon.ico">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</div>
+<div th:fragment="StudentNav"></div>
+<nav class="shell">
+    <header>
+        <div class="image-text">
+            <div class="text logo-text">
+                <span class="name">新川崎网络考试系统</span>
+                <span class="software">- 学生端 -</span>
+            </div>
+        </div>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a th:href="@{/addexam}">
+                        <span class="text nac-text">创建新考试</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a th:href="@{/examList}">
+                        <span class="text nac-text">考试中心</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a th:href="@{/findAllStuPaper}">
+                        <span class="text nac-text">考试历史</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-content">
+            <li class="nav-link">
+                <a data-toggle="modal" data-target="#myModal">
+                    <span class="text nac-text">修改信息</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a onclick="loginOut()">
+                    <span class="text nac-text">退出系统</span>
+                </a>
+            </li>
+        </div>
+    </div>
+    <script>
+        function loginOut() {
+            if (confirm('将退出该系统!')) {
+                location.replace("./logout");
+            }
+        }
+    </script>
+</nav>
+<form id="loginForm" th:action="@{/xiugai}" method="post">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">修改信息</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="userid" th:value="${session.lis}">
+                    <input type="hidden" id="ps" th:value="${session.liss}">
+                    <div class="form-group form-inline">
+                        <label>原密码：</label>
+                        <input type="password" name="pass" id="pass" class="form-control" placeholder="请输入旧密码"/>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>新密码：</label>
+                        <input type="password" name="userpwd" id="password" class="form-control" placeholder="请输入新密码"/>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>重复密码：</label>
+                        <input type="password" name="password2" id="password2" class="form-control" placeholder="请重复新密码"/>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>电子邮件：</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="请输入新电子邮件"/>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>电话号码：</label>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="请输入新电话号码"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" id="submit">提交更改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.querySelector("a[data-toggle='Modal']");
+    var span = document.getElementsByClassName("closebtn")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    $("#loginForm").submit(function () {
+        var old = document.getElementById("ps").value;
+        var pass = document.getElementById("pass").value;
+        var password = document.getElementById("password").value;
+        var password2 = document.getElementById("password2").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+
+        if (pass == "") {
+            alert("请输入原密码");
+            return false;
+        } else if (old != pass) {
+            alert("初始密码不正确");
+            return false;
+        } else if (password != "" && password2 != password) {
+            alert("两次密码输入不一致");
+            return false;
+        } else {
+            return true;
+        }
+    });
+</script>
+</body>
+</div>
+</html>

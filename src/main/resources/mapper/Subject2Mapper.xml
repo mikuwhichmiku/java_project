@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxt.dao.Subject2Dao">
+    <insert id="addSubject2">
+        insert into subject2(sid,cno,scontent,sa,sb,sc,sd,skey)
+        values (default,#{cno},#{scontent},#{sa},#{sb},
+                #{sc},#{sd},#{skey})
+    </insert>
+    <update id="updateMultiple">
+        update subject2 set cno=#{cno},
+                           scontent=#{scontent},
+                           sa=#{sa},
+                           sb=#{sb},
+                           sc=#{sc},
+                           sd=#{sd},
+                           skey=#{skey}
+        where sid=#{sid}
+    </update>
+    <delete id="delMultiple">
+        delete from subject2 where sid=#{sid}
+    </delete>
+
+
+    <select id="getAllSubject2" resultType="com.sxt.pojo.Subject2">
+        select * from subject2
+    </select>
+    <select id="getBySid2" resultType="com.sxt.pojo.Subject2">
+        select * from subject2 where sid=#{sid}
+    </select>
+    <select id="getSubject2" resultType="com.sxt.pojo.Subject2">
+        select * from subject2 where cno=#{cno} or cno=#{cno1}
+    </select>
+</mapper>
